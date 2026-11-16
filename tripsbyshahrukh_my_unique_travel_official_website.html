@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripsbyShahrukh | Curated Domestic & International Holidays by My Unique Travel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0B1F3A',
+                            blue: '#0284C7',
+                            teal: '#0D9488',
+                            amber: '#F59E0B',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-sky-600 selection:text-white">
+
+    <!-- Top Contact & Social Bar -->
+    <div class="bg-brand-navy text-slate-200 text-xs sm:text-sm py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                <a href="https://wa.me/919971927122" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 hover:text-amber-400 transition">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                    <span class="font-medium">+91 99719 27122</span>
+                </a>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <a href="mailto:srk.myuniquetravel@gmail.com" class="flex items-center gap-1.5 hover:text-amber-400 transition">
+                    <i class="fa-regular fa-envelope text-sky-400"></i>
+                    <span>srk.myuniquetravel@gmail.com</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="hidden lg:inline text-slate-400 text-xs">Official Brand of <strong class="text-white">My Unique Travel</strong></span>
+                <div class="flex items-center gap-3">
+                    <a href="https://instagram.com/tripsbyshahrukh" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-pink-400 transition" title="Instagram @tripsbyshahrukh">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                        <span class="hidden sm:inline">@tripsbyshahrukh</span>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 hover:text-sky-400 transition" title="Facebook: My Unique Travel">
+                        <i class="fa-brands fa-facebook text-sm"></i>
+                        <span class="hidden sm:inline">My Unique Travel</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Main Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <button onclick="navigateToHome()" class="flex items-center gap-3 text-left group focus:outline-none">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-600 to-teal-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
+                        <i class="fa-solid fa-plane-departure text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-tight text-brand-navy block leading-none">
+                            Tripsby<span class="text-sky-600">Shahrukh</span>
+                        </span>
+                        <span class="text-[11px] font-medium text-slate-500 tracking-wide block mt-0.5">
+                            A Venture by <strong class="text-slate-700">My Unique Travel</strong>
+                        </span>
+                    </div>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                    <button onclick="navigateToHome()" class="hover:text-sky-600 transition">Home</button>
+                    <button onclick="navigateToSection('destinations-section', 'domestic')" class="hover:text-sky-600 transition">Domestic Tours</button>
+                    <button onclick="navigateToSection('destinations-section', 'international')" class="hover:text-sky-600 transition">International Tours</button>
+                    <button onclick="navigateToSection('services-section')" class="hover:text-sky-600 transition">Services</button>
+                    <button onclick="navigateToSection('credentials-section')" class="hover:text-sky-600 transition">About & Legal</button>
+                    <button onclick="navigateToSection('contact-section')" class="hover:text-sky-600 transition">Contact Us</button>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openEnquiryModal('General Holiday Package')" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Enquire Now</span>
+                    </button>
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+            <button onclick="navigateToHome(); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">Home</button>
+            <button onclick="navigateToSection('destinations-section', 'domestic'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">Domestic Destinations</button>
+            <button onclick="navigateToSection('destinations-section', 'international'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">International Destinations</button>
+            <button onclick="navigateToSection('services-section'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">Travel Services</button>
+            <button onclick="navigateToSection('credentials-section'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">About & Legal Credentials</button>
+            <button onclick="navigateToSection('contact-section'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600">Contact Us</button>
+            <div class="pt-2">
+                <button onclick="openEnquiryModal('General Holiday Package'); toggleMobileMenu();" class="w-full flex items-center justify-center gap-2 bg-amber-500 text-white font-semibold py-3 rounded-xl shadow">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Get Free Trip Quote
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1: MAIN HOME LANDING VIEW                                        -->
+    <!-- ===================================================================== -->
+    <main id="home-view" class="block">
+        
+        <!-- Hero Banner Section -->
+        <section class="relative bg-brand-navy text-white overflow-hidden">
+            <!-- Background Image with Dark Gradient Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1920&q=80" 
+                     onerror="this.src='https://placehold.co/1920x900/0B1F3A/FFFFFF?text=Explore+the+World+with+TripsbyShahrukh'" 
+                     alt="Scenic Tropical & Mountain Travel" 
+                     class="w-full h-full object-cover object-center opacity-45">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/95 via-brand-navy/75 to-brand-navy/40"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 lg:pt-24 lg:pb-36">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium text-amber-300 mb-6">
+                        <i class="fa-solid fa-certificate text-amber-400"></i>
+                        <span>GST Registered & Verified Travel Agency • My Unique Travel</span>
+                    </div>
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-tight tracking-tight mb-6">
+                        Explore the World with <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">TripsbyShahrukh</span>
+                    </h1>
+                    <p class="text-slate-200 text-base sm:text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl">
+                        From the snow-capped valleys of Kashmir & Ladakh to the tropical beaches of Bali, Thailand & Dubai—we craft unforgettable journeys with transparent pricing and 24/7 support.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="navigateToSection('destinations-section', 'all')" class="bg-sky-600 hover:bg-sky-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-sky-500/30 transition flex items-center gap-2">
+                            <span>Explore Tour Packages</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <a href="https://wa.me/919971927122?text=Hi%20TripsbyShahrukh!%20I%20would%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Quick Trip Planner Widget -->
+        <section class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 -mt-16 sm:-mt-20">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-brand-navy flex items-center gap-2">
+                        <i class="fa-solid fa-compass text-sky-600"></i>
+                        <span>Quick Trip Planner & Instant Quote</span>
+                    </h2>
+                    <span class="hidden sm:inline-block text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1 rounded-full">
+                        Response within 15 mins
+                    </span>
+                </div>
+                <form id="quick-planner-form" onsubmit="handleQuickPlannerSubmit(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Destination</label>
+                        <select id="qp-destination" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <option value="Kashmir">Kashmir (Domestic)</option>
+                            <option value="Ladakh">Ladakh (Domestic)</option>
+                            <option value="Himachal">Himachal (Domestic)</option>
+                            <option value="Rajasthan">Rajasthan (Domestic)</option>
+                            <option value="Kerala">Kerala (Domestic)</option>
+                            <option value="Andaman">Andaman (Domestic)</option>
+                            <option value="Sikkim">Sikkim (Domestic)</option>
+                            <option value="Dubai">Dubai (International)</option>
+                            <option value="Thailand">Thailand (International)</option>
+                            <option value="Bali">Bali (International)</option>
+                            <option value="Vietnam">Vietnam (International)</option>
+                            <option value="Customized Tour">Other / Customized Tour</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Travel Date</label>
+                        <input type="date" id="qp-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Travellers</label>
+                        <select id="qp-travellers" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            <option value="2 Adults (Couple)">2 Adults (Couple)</option>
+                            <option value="Family (3-5 Pax)">Family (3-5 Pax)</option>
+                            <option value="Group (6+ Pax)">Group (6+ Pax)</option>
+                            <option value="Solo Traveller">Solo Traveller</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">WhatsApp / Phone</label>
+                        <input type="tel" id="qp-phone" placeholder="+91 98765 43210" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
+                            <span>Get Free Quote</span>
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Trust Highlights Bar -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">100% Verified</h3>
+                        <p class="text-xs text-slate-500">GST & PAN Registered Firm</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">Best Price Guarantee</h3>
+                        <p class="text-xs text-slate-500">Direct Hotel & Flight Deals</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">Custom Itineraries</h3>
+                        <p class="text-xs text-slate-500">Tailored to Your Budget</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-xl">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">24/7 Trip Support</h3>
+                        <p class="text-xs text-slate-500">Dedicated Travel Concierge</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Famous Destinations Section (Interactive Filter + Clickable Itinerary Pages) -->
+        <section id="destinations-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-sky-600 font-bold text-xs uppercase tracking-widest block mb-2">Handpicked Holiday Packages</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
+                        Our Famous Destinations
+                    </h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl text-sm sm:text-base">
+                        Click on any destination card below to open the complete Day-by-Day Itinerary, inclusions, hotel details, and instant booking options.
+                    </p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="inline-flex bg-white p-1.5 rounded-xl border border-slate-200 shadow-sm self-start md:self-auto">
+                    <button onclick="filterDestinations('all')" id="tab-all" class="dest-tab px-4 py-2 rounded-lg text-sm font-semibold transition bg-brand-navy text-white">
+                        All (11)
+                    </button>
+                    <button onclick="filterDestinations('domestic')" id="tab-domestic" class="dest-tab px-4 py-2 rounded-lg text-sm font-semibold transition text-slate-600 hover:text-brand-navy">
+                        Domestic India (7)
+                    </button>
+                    <button onclick="filterDestinations('international')" id="tab-international" class="dest-tab px-4 py-2 rounded-lg text-sm font-semibold transition text-slate-600 hover:text-brand-navy">
+                        International (4)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Destinations Grid (Rendered dynamically via JS) -->
+            <div id="destinations-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Comprehensive Travel Services Section -->
+        <section id="services-section" class="bg-white border-y border-slate-200/80 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">One-Stop Travel Solutions</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
+                        Complete Travel & Ticketing Services
+                    </h2>
+                    <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                        Beyond holiday packages, <strong>TripsbyShahrukh</strong> & <strong>My Unique Travel</strong> handle all your ticketing, visa documentation, cruise holidays, and corporate group bookings under one roof.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Service 1: Flight Tickets -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-13 h-13 w-12 h-12 rounded-xl bg-sky-100 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-plane"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Flight Tickets</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Domestic & International flight bookings with special corporate fares, zero convenience fee deals, and instant seat selection.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Flight Ticket Booking')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-sky-600 text-sky-700 group-hover:text-white border border-sky-200 group-hover:border-sky-600 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Flights</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 2: Train Tickets -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-train"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Train Tickets</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Hassle-free IRCTC railway reservations, Tatkal assistance, Vande Bharat, Rajdhani & luxury tourist train bookings across India.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Train Ticket Booking')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-indigo-600 text-indigo-700 group-hover:text-white border border-indigo-200 group-hover:border-indigo-600 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Trains</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 3: Bus Tickets -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-bus"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Bus Tickets</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Luxury Volvo AC Sleeper, Scania coaches, and private tempo traveller rentals for Manali, Shimla, Rajasthan & hill routes.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Bus & Volvo Ticket Booking')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-amber-500 text-amber-700 group-hover:text-white border border-amber-200 group-hover:border-amber-500 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Buses</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 4: Group Tours -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Group Tours</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Fixed departure group tours, corporate MICE offsites, college excursions, and large family reunions with dedicated tour managers.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Group Tour Package')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-teal-600 text-teal-700 group-hover:text-white border border-teal-200 group-hover:border-teal-600 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Group Tours</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 5: Cruise Booking -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-700 group-hover:bg-cyan-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-ship"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Cruise Booking</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Unforgettable ocean voyages with Cordelia Cruises (India), Royal Caribbean, Genting Dream & Singapore/Dubai luxury cruises.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Luxury Cruise Booking')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-cyan-600 text-cyan-700 group-hover:text-white border border-cyan-200 group-hover:border-cyan-600 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Cruises</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 6: Visa Assistance -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-passport"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Visa Assistance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                High-approval tourist & business visa processing for Dubai (UAE), Thailand, Vietnam, Bali, Schengen, UK, USA & Singapore.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Visa Processing & Assistance')" class="w-full py-2.5 px-4 rounded-xl bg-white group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white border border-emerald-200 group-hover:border-emerald-600 font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Enquire Visa</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Service 7: Customized Tours -->
+                    <div class="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200/70 hover:border-sky-300 hover:shadow-xl transition flex flex-col justify-between sm:col-span-2 lg:col-span-1 xl:col-span-2">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition flex items-center justify-center text-xl mb-5">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg text-brand-navy mb-2">Customized Tours (Honeymoon, Family & Solo)</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+                                Want a candlelight dinner in Bali, a private houseboat in Kashmir, or a tailored multi-country Europe/Asia trip? Tell us your dates & budget, and we will design your dream itinerary from scratch.
+                            </p>
+                        </div>
+                        <button onclick="openEnquiryModal('Customized Tailor-Made Tour')" class="w-full py-2.5 px-4 rounded-xl bg-brand-navy group-hover:bg-rose-600 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                            <span>Customize My Trip Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About, Trust & Official Legal Credentials Section -->
+        <section id="credentials-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <div class="bg-gradient-to-br from-brand-navy via-slate-900 to-sky-950 rounded-3xl p-8 sm:p-12 lg:p-14 text-white shadow-2xl relative overflow-hidden">
+                <!-- Decorative background circle -->
+                <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-5">
+                        <div class="inline-flex items-center gap-2 bg-sky-500/20 border border-sky-400/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-sky-300">
+                            <i class="fa-solid fa-building-shield"></i>
+                            <span>Corporate Transparency & Compliance</span>
+                        </div>
+                        <h2 class="font-heading font-extrabold text-2xl sm:text-4xl leading-tight">
+                            Travel with Confidence.<br>
+                            <span class="text-amber-400">Registered & Verified Agency.</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <strong>TripsbyShahrukh</strong> (<span class="text-sky-300 underline">tripsbyshahrukh.com</span>) is the flagship consumer travel brand operated by <strong>My Unique Travel</strong>. Based in New Delhi, we believe in complete transparency—all our tax registrations, PAN credentials, and physical office details are publicly verified for your peace of mind.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-4">
+                            <div class="flex items-center gap-2 text-sm text-emerald-300 font-medium">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>GST Compliant Billing</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-300 font-medium">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>No Hidden Charges</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-emerald-300 font-medium">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Physical Delhi Office</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Official Credentials Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-6 sm:p-7 space-y-4">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                                <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Official Registration Details</span>
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-0.5 rounded-full border border-emerald-400/30">Active</span>
+                            </div>
+                            
+                            <div>
+                                <p class="text-xs text-slate-400">Registered Legal Entity / Copyright</p>
+                                <p class="font-heading font-bold text-lg text-white">My Unique Travel</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-white/10">
+                                    <p class="text-[11px] uppercase tracking-wider text-amber-400 font-semibold">GST Number (GSTIN)</p>
+                                    <p class="font-mono font-bold text-sm sm:text-base text-white mt-0.5 select-all">07ABPFM1793A1Z7</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-3.5 rounded-xl border border-white/10">
+                                    <p class="text-[11px] uppercase tracking-wider text-sky-400 font-semibold">PAN Card Number</p>
+                                    <p class="font-mono font-bold text-sm sm:text-base text-white mt-0.5 select-all">ABPFM1793A</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-1">
+                                <p class="text-xs text-slate-400">Head Office Address</p>
+                                <p class="text-sm text-slate-200 font-medium mt-0.5 flex items-start gap-2">
+                                    <i class="fa-solid fa-location-dot text-rose-400 mt-1 shrink-0"></i>
+                                    <span>Guru Nanak Market, 4, National Park, Lajpat Nagar, New Delhi, Delhi 110048</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us & Interactive Enquiry Section -->
+        <section id="contact-section" class="bg-white border-t border-slate-200/80 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sky-600 font-bold text-xs uppercase tracking-widest block mb-2">Get In Touch</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">
+                        Plan Your Next Journey With Us
+                    </h2>
+                    <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                        Visit our Lajpat Nagar office in New Delhi, message us on WhatsApp, or drop your requirements below.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <!-- Contact Details & Social Channels -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 space-y-5">
+                            <h3 class="font-heading font-bold text-xl text-brand-navy">Direct Contact Channels</h3>
+                            
+                            <a href="https://wa.me/919971927122" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 p-3.5 rounded-xl bg-white border border-slate-200/70 hover:border-emerald-400 transition group">
+                                <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-slate-500 uppercase">WhatsApp & Call Support</span>
+                                    <p class="font-bold text-slate-900 text-base">+91 99719 27122</p>
+                                    <span class="text-xs text-emerald-600 font-medium">Click to start instant WhatsApp chat →</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:srk.myuniquetravel@gmail.com" class="flex items-start gap-4 p-3.5 rounded-xl bg-white border border-slate-200/70 hover:border-sky-400 transition group">
+                                <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-sky-600 group-hover:text-white transition">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-slate-500 uppercase">Official Email</span>
+                                    <p class="font-bold text-slate-900 text-sm sm:text-base break-all">srk.myuniquetravel@gmail.com</p>
+                                    <span class="text-xs text-sky-600 font-medium">For quotes, vouchers & corporate queries</span>
+                                </div>
+                            </a>
+
+                            <div class="flex items-start gap-4 p-3.5 rounded-xl bg-white border border-slate-200/70">
+                                <div class="w-11 h-11 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-semibold text-slate-500 uppercase">New Delhi Office</span>
+                                    <p class="font-bold text-slate-900 text-sm leading-snug mt-0.5">
+                                        Guru Nanak Market, 4, National Park, Lajpat Nagar, New Delhi, Delhi 110048
+                                    </p>
+                                    <a href="https://maps.google.com/?q=Guru+Nanak+Market,+4,+National+Park,+Lajpat+Nagar,+New+Delhi,+Delhi+110048" target="_blank" rel="noopener noreferrer" class="inline-block mt-1.5 text-xs font-semibold text-rose-600 hover:underline">
+                                        Open in Google Maps ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Social Media Links -->
+                            <div class="pt-2">
+                                <p class="text-xs font-semibold text-slate-500 uppercase mb-3">Follow Our Travel Stories</p>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <a href="https://instagram.com/tripsbyshahrukh" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white text-xs sm:text-sm font-semibold shadow-sm hover:opacity-95 transition">
+                                        <i class="fa-brands fa-instagram text-base"></i>
+                                        <span>@tripsbyshahrukh</span>
+                                    </a>
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#1877F2] text-white text-xs sm:text-sm font-semibold shadow-sm hover:opacity-95 transition">
+                                        <i class="fa-brands fa-facebook text-base"></i>
+                                        <span>My Unique Travel</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200/80">
+                            <h3 class="font-heading font-bold text-xl text-brand-navy mb-2">Send Us a Trip Enquiry</h3>
+                            <p class="text-slate-500 text-sm mb-6">Fill in your details and our travel expert will call or WhatsApp you with a customized itinerary.</p>
+
+                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Your Full Name *</label>
+                                        <input type="text" id="cf-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Phone / WhatsApp Number *</label>
+                                        <input type="tel" id="cf-phone" required placeholder="e.g. +91 99719 27122" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Email Address</label>
+                                        <input type="email" id="cf-email" placeholder="you@example.com" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1.5">Service / Destination *</label>
+                                        <select id="cf-service" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                            <option value="Kashmir Holiday Package">Kashmir Holiday Package</option>
+                                            <option value="Ladakh Adventure Package">Ladakh Adventure Package</option>
+                                            <option value="Himachal Tour Package">Himachal Tour Package</option>
+                                            <option value="Rajasthan Royal Tour">Rajasthan Royal Tour</option>
+                                            <option value="Kerala Backwaters Tour">Kerala Backwaters Tour</option>
+                                            <option value="Andaman Island Package">Andaman Island Package</option>
+                                            <option value="Sikkim & Gangtok Tour">Sikkim & Gangtok Tour</option>
+                                            <option value="Dubai International Package">Dubai International Package</option>
+                                            <option value="Thailand Holiday Package">Thailand Holiday Package</option>
+                                            <option value="Bali Romantic / Family Tour">Bali Romantic / Family Tour</option>
+                                            <option value="Vietnam Heritage Tour">Vietnam Heritage Tour</option>
+                                            <option value="Flight / Train / Bus Tickets">Flight / Train / Bus Tickets</option>
+                                            <option value="Cruise / Visa / Group Tour">Cruise / Visa / Group Tour</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1.5">Travel Details & Requirements</label>
+                                    <textarea id="cf-message" rows="3" placeholder="Mention preferred travel dates, number of adults/kids, departure city, or hotel preference..." class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                                </div>
+
+                                <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                                    <button type="submit" class="flex-1 bg-brand-navy hover:bg-sky-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>Submit Enquiry</span>
+                                    </button>
+                                    <button type="button" onclick="sendContactViaWhatsApp()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                                        <span>Send Directly on WhatsApp</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 2: DEDICATED DESTINATION ITINERARY PAGE (SPA ROUTE VIEW)         -->
+    <!-- ===================================================================== -->
+    <section id="itinerary-view" class="hidden min-h-screen bg-slate-50 pb-20">
+        <!-- Breadcrumb & Back Bar -->
+        <div class="bg-white border-b border-slate-200 py-3.5 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+                <button onclick="navigateToHome()" class="inline-flex items-center gap-2 text-sm font-bold text-sky-700 hover:text-brand-navy transition">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to All Destinations</span>
+                </button>
+                <div class="text-xs text-slate-500 flex items-center gap-2">
+                    <span class="cursor-pointer hover:text-sky-600" onclick="navigateToHome()">Home</span>
+                    <span>/</span>
+                    <span id="itin-breadcrumb-cat" class="capitalize">Domestic</span>
+                    <span>/</span>
+                    <span id="itin-breadcrumb-name" class="font-semibold text-slate-800">Destination</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination Hero Banner -->
+        <div class="relative h-72 sm:h-96 bg-brand-navy text-white overflow-hidden">
+            <img id="itin-hero-img" src="" alt="Destination Banner" class="w-full h-full object-cover opacity-55">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/50 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+                <div class="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span id="itin-badge-type" class="bg-sky-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Domestic India</span>
+                    <span id="itin-badge-duration" class="bg-amber-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full">5 Nights / 6 Days</span>
+                </div>
+                <h1 id="itin-title" class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+                    Destination Title
+                </h1>
+                <p id="itin-tagline" class="text-slate-200 text-sm sm:text-lg mt-2 max-w-3xl">
+                    Destination Subtitle
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Itinerary Content Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+                
+                <!-- Left Column: Overview, Highlights, Day-by-Day Plan, Inclusions -->
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <!-- Tour Overview & Key Highlights -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                        <h2 class="font-heading font-bold text-xl sm:text-2xl text-brand-navy mb-3">Package Overview</h2>
+                        <p id="itin-overview" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                            Overview text here.
+                        </p>
+                        
+                        <h3 class="font-heading font-bold text-base text-brand-navy mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-star text-amber-500"></i>
+                            <span>Tour Highlights</span>
+                        </h3>
+                        <div id="itin-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Highlights injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Day-by-Day Detailed Itinerary -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="font-heading font-bold text-xl sm:text-2xl text-brand-navy flex items-center gap-2.5">
+                                <i class="fa-solid fa-route text-sky-600"></i>
+                                <span>Day-by-Day Detailed Itinerary</span>
+                            </h2>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">100% Customizable</span>
+                        </div>
+
+                        <div id="itin-days-container" class="space-y-5 relative before:absolute before:inset-y-0 before:left-5 before:w-0.5 before:bg-sky-100">
+                            <!-- Day cards injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Inclusions & Exclusions -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-200/80">
+                            <h3 class="font-heading font-bold text-lg text-emerald-800 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Package Inclusions</span>
+                            </h3>
+                            <ul id="itin-inclusions" class="space-y-2.5 text-sm text-slate-700">
+                                <!-- Inclusions injected via JS -->
+                            </ul>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-rose-200/80">
+                            <h3 class="font-heading font-bold text-lg text-rose-800 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-xmark text-rose-500"></i>
+                                <span>Package Exclusions</span>
+                            </h3>
+                            <ul id="itin-exclusions" class="space-y-2.5 text-sm text-slate-700">
+                                <!-- Exclusions injected via JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Switch to Other Destinations Quick Strip -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80">
+                        <h3 class="font-heading font-bold text-base text-brand-navy mb-3">Explore Other Popular Itineraries</h3>
+                        <div id="itin-other-links" class="flex flex-wrap gap-2">
+                            <!-- Quick pills injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Sticky Booking & Price Card -->
+                <div class="lg:col-span-4">
+                    <div class="sticky top-24 space-y-6">
+                        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-200">
+                            <div class="border-b border-slate-100 pb-4 mb-5">
+                                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Starting Package Price</span>
+                                <div class="flex items-baseline gap-2 mt-1">
+                                    <span id="itin-price" class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-navy">₹18,999</span>
+                                    <span class="text-xs text-slate-500 font-medium">/ per person</span>
+                                </div>
+                                <p class="text-xs text-teal-600 font-semibold mt-1">
+                                    <i class="fa-solid fa-tag mr-1"></i>Includes Hotels, Breakfast, Transfers & Sightseeing
+                                </p>
+                            </div>
+
+                            <!-- Direct Booking / Enquiry Form for this Destination -->
+                            <form id="itin-booking-form" onsubmit="handleItineraryBookingSubmit(event)" class="space-y-3.5">
+                                <input type="hidden" id="itin-form-dest-name" value="">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label>
+                                    <input type="text" id="itin-user-name" required placeholder="Enter your name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp / Mobile Number *</label>
+                                    <input type="tel" id="itin-user-phone" required placeholder="+91 98765 43210" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1">Travel Date</label>
+                                        <input type="date" id="itin-user-date" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-700 mb-1">No. of Guests</label>
+                                        <select id="itin-user-guests" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                            <option value="2 Guests">2 Guests</option>
+                                            <option value="4 Guests">4 Guests</option>
+                                            <option value="6+ Guests">6+ Guests</option>
+                                            <option value="1 Guest">1 Guest</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 mt-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Request Custom Quote</span>
+                                </button>
+                            </form>
+
+                            <div class="relative my-4 text-center">
+                                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+                                <span class="relative bg-white px-3 text-xs text-slate-400 font-medium">OR INSTANT CHAT</span>
+                            </div>
+
+                            <a id="itin-whatsapp-btn" href="https://wa.me/919971927122" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Book This Itinerary via WhatsApp</span>
+                            </a>
+
+                            <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-slate-500 space-y-1.5">
+                                <p class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Operated by <strong>My Unique Travel</strong></p>
+                                <p class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> GST Invoice Available (07ABPFM1793A1Z7)</p>
+                                <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-sky-600"></i> Helpline: +91 99719 27122</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- FOOTER (Includes Copyright, GST, PAN, Address, Domain & Quick Links)  -->
+    <!-- ===================================================================== -->
+    <footer class="bg-brand-navy text-slate-300 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <!-- Col 1: Brand & Legal Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-teal-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-plane-departure text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="font-heading font-extrabold text-xl text-white block leading-none">
+                                Tripsby<span class="text-sky-400">Shahrukh</span>
+                            </span>
+                            <span class="text-[11px] text-slate-400 block mt-0.5">tripsbyshahrukh.com</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Your trusted travel partner for curated domestic & international holidays, flights, trains, buses, luxury cruises, and visa assistance.
+                    </p>
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 text-xs space-y-1">
+                        <p class="text-white font-semibold">Legal Entity: My Unique Travel</p>
+                        <p class="text-slate-400">GSTIN: <span class="text-amber-400 font-mono font-semibold">07ABPFM1793A1Z7</span></p>
+                        <p class="text-slate-400">PAN Card: <span class="text-sky-400 font-mono font-semibold">ABPFM1793A</span></p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Domestic Destinations (Opens Itinerary Pages) -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">Domestic Itineraries</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="openDestinationItinerary('kashmir')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Kashmir Tour Packages</button></li>
+                        <li><button onclick="openDestinationItinerary('ladakh')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Ladakh Adventure Tours</button></li>
+                        <li><button onclick="openDestinationItinerary('himachal')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Himachal (Shimla & Manali)</button></li>
+                        <li><button onclick="openDestinationItinerary('rajasthan')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Royal Rajasthan Tours</button></li>
+                        <li><button onclick="openDestinationItinerary('kerala')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Kerala Backwaters & Munnar</button></li>
+                        <li><button onclick="openDestinationItinerary('andaman')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Andaman Island Holidays</button></li>
+                        <li><button onclick="openDestinationItinerary('sikkim')" class="hover:text-sky-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-sky-500"></i> Sikkim & Gangtok Tours</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: International Destinations & Services -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">International & Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><button onclick="openDestinationItinerary('dubai')" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-amber-500"></i> Dubai Luxury Packages</button></li>
+                        <li><button onclick="openDestinationItinerary('thailand')" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-amber-500"></i> Thailand (Phuket & Krabi)</button></li>
+                        <li><button onclick="openDestinationItinerary('bali')" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-amber-500"></i> Bali Honeymoon & Family</button></li>
+                        <li><button onclick="openDestinationItinerary('vietnam')" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-amber-500"></i> Vietnam Heritage & Ha Long</button></li>
+                        <li class="pt-2 border-t border-slate-800/80">
+                            <button onclick="navigateToSection('services-section')" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fa-solid fa-ticket text-xs text-teal-400"></i> Flight, Train & Bus Tickets</button>
+                        </li>
+                        <li>
+                            <button onclick="navigateToSection('services-section')" class="hover:text-teal-400 transition flex items-center gap-2"><i class="fa-solid fa-ship text-xs text-teal-400"></i> Cruise, Visa & Group Tours</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Office Address -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-base mb-4">Contact & Office</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-rose-400 mt-1 shrink-0"></i>
+                            <span>Guru Nanak Market, 4, National Park, Lajpat Nagar, New Delhi, Delhi 110048</span>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/919971927122" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 hover:text-emerald-400 transition">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                                <span>+91 99719 27122</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:srk.myuniquetravel@gmail.com" class="flex items-center gap-2.5 hover:text-sky-400 transition break-all">
+                                <i class="fa-regular fa-envelope text-sky-400"></i>
+                                <span>srk.myuniquetravel@gmail.com</span>
+                            </a>
+                        </li>
+                        <li class="pt-2 flex items-center gap-3">
+                            <a href="https://instagram.com/tripsbyshahrukh" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 text-white flex items-center justify-center transition" title="Instagram @tripsbyshahrukh">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition" title="Facebook: My Unique Travel">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/919971927122" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-emerald-600 text-white flex items-center justify-center transition" title="WhatsApp Us">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 text-center md:text-left">
+                <p>
+                    &copy; 2026 <strong class="text-white">My Unique Travel</strong>. All Rights Reserved. | Brand: <strong class="text-sky-400">TripsbyShahrukh</strong> (<span class="text-slate-300">tripsbyshahrukh.com</span>)
+                </p>
+                <p class="font-mono text-slate-400">
+                    GSTIN: <span class="text-slate-200">07ABPFM1793A1Z7</span> &bull; PAN: <span class="text-slate-200">ABPFM1793A</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Bottom Right) -->
+    <a href="https://wa.me/919971927122?text=Hello%20TripsbyShahrukh%20(My%20Unique%20Travel)!%20I%20need%20help%20with%20a%20travel%20booking." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chat on WhatsApp"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-3.5 rounded-full shadow-2xl hover:scale-105 transition group">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="hidden sm:inline text-sm pr-1">Chat on WhatsApp</span>
+    </a>
+
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE ENQUIRY MODAL                                             -->
+    <!-- ===================================================================== -->
+    <div id="enquiry-modal" class="hidden fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 relative animate-fade-in">
+            <button onclick="closeEnquiryModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-lg text-brand-navy">Quick Travel Enquiry</h3>
+                    <p class="text-xs text-slate-500">TripsbyShahrukh • My Unique Travel</p>
+                </div>
+            </div>
+
+            <form id="modal-enquiry-form" onsubmit="handleModalEnquirySubmit(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Enquiring For</label>
+                    <input type="text" id="modal-subject" readonly class="w-full bg-sky-50 border border-sky-200 text-sky-900 font-semibold rounded-xl px-3.5 py-2.5 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
+                    <input type="text" id="modal-name" required placeholder="Enter your full name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                    <input type="tel" id="modal-phone" required placeholder="+91 98765 43210" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Travel Date & Notes</label>
+                    <input type="text" id="modal-notes" placeholder="e.g. Next month, 4 adults from Delhi" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div class="pt-2 flex flex-col gap-2.5">
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Connect on WhatsApp Now</span>
+                    </button>
+                    <button type="button" onclick="confirmModalToastOnly()" class="w-full bg-brand-navy hover:bg-slate-800 text-white font-semibold py-2.5 rounded-xl text-sm transition">
+                        Request Callback Instead
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification Banner (Replaces alert() cleanly) -->
+    <div id="toast-notification" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-brand-navy text-white px-6 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 max-w-md w-[92%]">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl shrink-0"></i>
+        <p id="toast-message" class="text-sm font-medium">Thank you! Our travel specialist will reach out shortly.</p>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT: COMPLETE DESTINATION DATA & SPA NAVIGATION LOGIC          -->
+    <!-- ===================================================================== -->
+    <script>
+        // Rich, authentic database for all 11 specified destinations
+        const DESTINATIONS_DATA = [
+            {
+                id: 'kashmir',
+                name: 'Kashmir',
+                title: 'Paradise on Earth: Srinagar, Gulmarg & Pahalgam',
+                tagline: 'Experience Shikara rides on Dal Lake, snow-clad Gondola peaks in Gulmarg, and lush pine valleys in Pahalgam.',
+                category: 'domestic',
+                duration: '5 Nights / 6 Days',
+                price: '₹16,499',
+                badge: 'Bestseller',
+                image: 'https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Discover why Kashmir is called Jannat-e-Kashmir with TripsbyShahrukh. Stay in a traditional cedarwood houseboat on Dal Lake, ride the world-famous Gulmarg Gondola to Apharwat Peak, and explore the scenic Aru & Betaab Valleys of Pahalgam with private cab transfers.',
+                highlights: [
+                    '1 Night Luxury Houseboat Stay on Dal Lake with Sunset Shikara Ride',
+                    'Gulmarg Phase 1 & 2 Gondola Cable Car Assistance',
+                    'Pahalgam Excursion: Betaab Valley, Aru Valley & Chandanwari',
+                    'Mughal Gardens Tour: Nishat Bagh, Shalimar Bagh & Shankaracharya Temple'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Srinagar & Dal Lake Shikara Ride', desc: 'Arrive at Srinagar Airport where our representative welcomes you. Check in to your Deluxe Houseboat on Dal Lake. Enjoy a serene 1-hour Shikara ride at sunset amidst floating markets. Dinner & overnight stay in Srinagar.' },
+                    { day: 'Day 2', title: 'Srinagar to Gulmarg (Meadow of Flowers)', desc: 'After breakfast, drive to Gulmarg (50 km / 2 hrs). Enjoy panoramic views of Nanga Parbat, take the iconic Gondola ride (Phase 1 & 2), and indulge in snow activities. Overnight stay in Gulmarg/Srinagar.' },
+                    { day: 'Day 3', title: 'Srinagar to Pahalgam via Pampore Saffron Fields', desc: 'Proceed to Pahalgam (90 km). En route, visit the famous Pampore saffron fields and Avantipura Ruins. Check in at your riverside hotel in Pahalgam and relax by the Lidder River.' },
+                    { day: 'Day 4', title: 'Pahalgam Valley Sightseeing (Aru & Betaab Valley)', desc: 'Explore the breathtaking valleys of Pahalgam via local union cab—visit Betaab Valley, Aru Valley, and Chandanwari. Evening free for leisure shopping at Pahalgam market.' },
+                    { day: 'Day 5', title: 'Return to Srinagar & Mughal Gardens Heritage Tour', desc: 'Drive back to Srinagar. Visit the historic Mughal Gardens—Nishat Bagh (Garden of Pleasure), Shalimar Bagh (Abode of Love), Chashme Shahi, and Shankaracharya Hill Temple.' },
+                    { day: 'Day 6', title: 'Departure from Srinagar Airport', desc: 'After a hearty Kashmiri breakfast, transfer to Srinagar Airport with unforgettable memories curated by TripsbyShahrukh.' }
+                ],
+                inclusions: [
+                    '5 Nights accommodation in 3*/4* Hotels & Deluxe Houseboat',
+                    'Daily Breakfast and Dinner (MAP Meal Plan)',
+                    'Private AC Sedan/SUV for all transfers & sightseeing',
+                    'Complimentary 1-Hour Shikara Ride on Dal Lake',
+                    'All toll taxes, parking, driver allowance & GST'
+                ],
+                exclusions: [
+                    'Airfare / Train tickets (can be booked separately with us)',
+                    'Gulmarg Gondola tickets & Pahalgam local union cab',
+                    'Pony rides, skiing, sledging & personal expenses'
+                ]
+            },
+            {
+                id: 'ladakh',
+                name: 'Ladakh',
+                title: 'Mystic Ladakh: Leh, Nubra Valley & Pangong Tso',
+                tagline: 'Conquer Khardung La Pass, ride double-humped Bactrian camels in Hunder, and camp beside colour-changing Pangong Lake.',
+                category: 'domestic',
+                duration: '6 Nights / 7 Days',
+                price: '₹21,999',
+                badge: 'Adventure Pick',
+                image: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Embark on a high-altitude Himalayan expedition across Ladakh. From ancient cliffside monasteries like Thiksey and Diskit to crossing Khardung La—one of the highest motorable passes in the world—this itinerary ensures proper acclimatization and comfort.',
+                highlights: [
+                    'Drive across Khardung La Pass (17,982 ft) into Nubra Valley',
+                    'Overnight Swiss Camp stay near Pangong Tso Lake',
+                    'Sangam Confluence (Indus & Zanskar Rivers) & Magnetic Hill',
+                    'Inner Line Permits & Oxygen Cylinder Backup included'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Leh & Complete Acclimatization', desc: 'Arrive at Kushok Bakula Rimpochee Airport, Leh. Transfer to hotel. Rest completely to acclimatize to the high altitude. Evening gentle walk at Leh Main Market.' },
+                    { day: 'Day 2', title: 'Leh Local Sightseeing: Sham Valley Excursion', desc: 'Visit Hall of Fame Museum, Gurudwara Pathar Sahib, Magnetic Hill, and Sangam—the stunning confluence of the Indus and Zanskar rivers. Visit Shanti Stupa for sunset.' },
+                    { day: 'Day 3', title: 'Leh to Nubra Valley via Khardung La Pass', desc: 'Drive across the legendary Khardung La Pass into Nubra Valley. Visit Diskit Monastery with its giant Maitreya Buddha statue and enjoy a Bactrian camel safari on Hunder sand dunes.' },
+                    { day: 'Day 4', title: 'Nubra Valley to Pangong Lake via Shyok Route', desc: 'After breakfast, take the scenic Shyok river route directly to Pangong Tso (14,270 ft). Witness the lake change shades of blue and gold. Overnight stay in luxury lakeside cottages.' },
+                    { day: 'Day 5', title: 'Pangong Lake to Leh via Chang La Pass', desc: 'Wake up to a magical sunrise over Pangong Tso. Drive back to Leh crossing Chang La Pass (17,590 ft), stopping at Thiksey Monastery and Rancho School (Druk Padma Karpo).' },
+                    { day: 'Day 6', title: 'Leh Leisure & Café Hopping Day', desc: 'Free day in Leh to shop for Pashmina shawls, apricots, and Tibetan handicrafts, or enjoy rooftop cafés.' },
+                    { day: 'Day 7', title: 'Departure from Leh Airport', desc: 'Early morning transfer to Leh Airport for your onward flight home.' }
+                ],
+                inclusions: [
+                    '6 Nights stay in Leh hotels, Nubra camps & Pangong cottages',
+                    'Daily Breakfast and Dinner',
+                    'Non-AC Innova / Xylo / Tempo Traveller as per group size',
+                    'Ladakh Inner Line Permits & Environmental Fees',
+                    'First-aid kit & portable oxygen cylinder in vehicle'
+                ],
+                exclusions: [
+                    'Flights to and from Leh',
+                    'Camel safari, ATV rides & monastery entry fees',
+                    'Lunch and personal beverages'
+                ]
+            },
+            {
+                id: 'himachal',
+                name: 'Himachal',
+                title: 'Himachal Escape: Shimla, Kufri, Manali & Atal Tunnel',
+                tagline: 'Pine-scented hills, Mall Road strolls, Solang Valley snow adventures, and the engineering marvel of Atal Tunnel.',
+                category: 'domestic',
+                duration: '5 Nights / 6 Days',
+                price: '₹13,999',
+                badge: 'Family Favourite',
+                image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80',
+                overview: 'A classic Himachal Pradesh getaway starting from Delhi or Chandigarh. Explore the colonial charm of Shimla and snowy slopes of Kufri before heading through Kullu Valley to Manali, Solang Valley, and Sissu via the Atal Tunnel.',
+                highlights: [
+                    'Shimla Ridge, Christ Church, Jakhoo Temple & Kufri Fun World',
+                    'Scenic Kullu Valley drive & River Rafting point stop',
+                    'Solang Valley & Atal Tunnel / Sissu Excursion',
+                    'Hadimba Devi Temple, Vashisht Hot Springs & Old Manali Cafés'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Delhi / Chandigarh to Shimla (Queen of Hills)', desc: 'Pick up from Delhi/Chandigarh and drive to Shimla. Check in to your hotel. In the evening, stroll along The Ridge, Scandal Point, and Mall Road.' },
+                    { day: 'Day 2', title: 'Kufri Excursion & Shimla Local Sightseeing', desc: 'Drive to Kufri for Himalayan panoramic views and horse riding. Later visit Jakhoo Temple and Vice Regal Lodge. Overnight stay in Shimla.' },
+                    { day: 'Day 3', title: 'Shimla to Manali via Kullu Valley', desc: 'Scenic drive along the Beas River passing Sundernagar Lake, Pandoh Dam, and Kullu Shawl Factories. Reach Manali by evening and check in.' },
+                    { day: 'Day 4', title: 'Solang Valley & Atal Tunnel Adventure', desc: 'Head to Solang Valley for paragliding, zorbing, and snow activities. Drive through the 9.02 km Atal Tunnel to Sissu Valley (subject to weather).' },
+                    { day: 'Day 5', title: 'Manali Local Heritage & Café Tour', desc: 'Visit the ancient wooden Hadimba Devi Temple, Manu Temple, Vashisht Hot Water Springs, and Tibetan Monastery. Evening shopping at Mall Road.' },
+                    { day: 'Day 6', title: 'Manali to Delhi / Chandigarh Drop', desc: 'After breakfast, check out and drive back to Delhi/Chandigarh for your onward journey.' }
+                ],
+                inclusions: [
+                    '5 Nights accommodation (2N Shimla + 3N Manali)',
+                    'Daily Breakfast & Dinner at hotel',
+                    'Private Cab from Delhi/Chandigarh for entire tour',
+                    'All fuel, toll taxes, parking & state permit charges'
+                ],
+                exclusions: [
+                    'Rohtang Pass permit & special union cab (if open)',
+                    'Adventure sports like paragliding, rafting & skiing',
+                    'Monastery/Monument entry tickets'
+                ]
+            },
+            {
+                id: 'rajasthan',
+                name: 'Rajasthan',
+                title: 'Royal Rajasthan: Jaipur, Jodhpur, Jaisalmer & Udaipur',
+                tagline: 'Majestic hilltop forts, golden Thar Desert camel safaris, and romantic boat rides on Lake Pichola.',
+                category: 'domestic',
+                duration: '6 Nights / 7 Days',
+                price: '₹18,499',
+                badge: 'Cultural Heritage',
+                image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Immerse yourself in the royal grandeur of Rajputana. Witness the Pink City of Jaipur, the Blue City of Jodhpur, an unforgettable overnight desert camp with Rajasthani folk dance in Jaisalmer, and the City of Lakes—Udaipur.',
+                highlights: [
+                    'Amer Fort, Hawa Mahal & City Palace tour in Jaipur',
+                    'Mehrangarh Fort & Jaswant Thada in Jodhpur',
+                    'Sam Sand Dunes Jeep Safari, Folk Dance & Luxury Desert Camp in Jaisalmer',
+                    'Sunset Boat Ride on Lake Pichola & City Palace in Udaipur'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Jaipur & Evening Chokhi Dhani Option', desc: 'Arrive in Jaipur. Visit Birla Temple and Albert Hall Museum. Evening free to explore colorful Johari & Bapu Bazaars.' },
+                    { day: 'Day 2', title: 'Jaipur Royal Forts & Palaces Tour', desc: 'Explore Amer Fort, photo stop at Jal Mahal, Hawa Mahal (Palace of Winds), Jantar Mantar, and Jaipur City Palace.' },
+                    { day: 'Day 3', title: 'Jaipur to Jodhpur (The Blue City)', desc: 'Drive to Jodhpur. Visit the towering Mehrangarh Fort, Jaswant Thada marble cenotaph, and Umaid Bhawan Palace Museum.' },
+                    { day: 'Day 4', title: 'Jodhpur to Jaisalmer & Sam Sand Dunes Camp', desc: 'Proceed to the Golden City, Jaisalmer. Check in to a luxury Thar Desert Camp. Enjoy sunset camel/jeep safari, Kalbelia folk dance, bonfire & gala dinner.' },
+                    { day: 'Day 5', title: 'Jaisalmer Fort & Drive to Udaipur', desc: 'Visit Jaisalmer Sonar Quila, Patwon Ki Haveli, and Gadisar Lake before proceeding toward Udaipur (or overnight halt en route).' },
+                    { day: 'Day 6', title: 'Udaipur: City of Lakes Sightseeing', desc: 'Explore Udaipur City Palace, Jagdish Temple, Saheliyon Ki Bari, and enjoy a breathtaking sunset boat ride on Lake Pichola.' },
+                    { day: 'Day 7', title: 'Departure from Udaipur', desc: 'After breakfast, transfer to Udaipur Airport or Railway Station.' }
+                ],
+                inclusions: [
+                    '6 Nights stay in Heritage/3*/4* Hotels & Desert Camp',
+                    'Daily Breakfast + Dinner at Desert Camp',
+                    'Private AC Chauffeur-driven car for complete circuit',
+                    'Cultural folk dance & bonfire evening in Jaisalmer'
+                ],
+                exclusions: [
+                    'Monument camera & entry fees',
+                    'Jeep safari / Camel ride upgrades',
+                    'Flights or Train tickets'
+                ]
+            },
+            {
+                id: 'kerala',
+                name: 'Kerala',
+                title: 'God’s Own Country: Munnar, Thekkady & Alleppey Houseboat',
+                tagline: 'Rolling emerald tea plantations, spice gardens, wildlife safaris, and a private Kerala backwater houseboat cruise.',
+                category: 'domestic',
+                duration: '5 Nights / 6 Days',
+                price: '₹17,299',
+                badge: 'Honeymoon Special',
+                image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Unwind in the lush greenery of Kerala. Breathe in fresh mountain air amidst Munnar’s misty tea estates, spot wildlife at Periyar Lake in Thekkady, and drift through palm-fringed canals on a private traditional Kettuvallam houseboat in Alleppey.',
+                highlights: [
+                    'Cheeyappara & Valara Waterfalls en route to Munnar',
+                    'Eravikulam National Park, Mattupetty Dam & Tea Museum',
+                    'Thekkady Spice Plantation Tour & Periyar Boat Safari',
+                    '1 Night Private Deluxe Houseboat in Alleppey with All Meals'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Kochi & Drive to Munnar', desc: 'Pick up from Cochin Airport/Station. Drive to Munnar stopping at Cheeyappara and Valara waterfalls. Check in to your hill resort.' },
+                    { day: 'Day 2', title: 'Munnar Tea Gardens & Hill Sightseeing', desc: 'Visit Eravikulam National Park (home to Nilgiri Tahr), Tea Museum, Mattupetty Dam, Echo Point, and Kundala Lake.' },
+                    { day: 'Day 3', title: 'Munnar to Thekkady (Periyar Wildlife)', desc: 'Drive through scenic cardamom hills to Thekkady. Enjoy a guided spice plantation tour and optional Kathakali/Kalaripayattu cultural show.' },
+                    { day: 'Day 4', title: 'Thekkady to Alleppey Private Houseboat', desc: 'Drive to Alleppey and board your private AC Houseboat at 12:00 PM. Cruise through tranquil backwaters, paddy fields, and village canals. All meals freshly cooked onboard.' },
+                    { day: 'Day 5', title: 'Alleppey to Kochi Heritage Tour', desc: 'Disembark after breakfast and drive to Kochi. Visit Fort Kochi, Chinese Fishing Nets, St. Francis Church, and Marine Drive.' },
+                    { day: 'Day 6', title: 'Departure from Cochin Airport', desc: 'Transfer to Cochin International Airport for your return flight.' }
+                ],
+                inclusions: [
+                    '4 Nights in 3*/4* Resorts + 1 Night Private AC Houseboat',
+                    'Daily Breakfast + Lunch & Dinner on Houseboat',
+                    'Private AC Sedan/SUV from Cochin to Cochin',
+                    'All tolls, parking, driver bata & applicable taxes'
+                ],
+                exclusions: [
+                    'Periyar boating & National Park entry tickets',
+                    'Cultural show tickets & Ayurvedic spa treatments',
+                    'Airfare / Train fare'
+                ]
+            },
+            {
+                id: 'andaman',
+                name: 'Andaman',
+                title: 'Andaman Island Bliss: Port Blair, Havelock & Neil Island',
+                tagline: 'Turquoise coral waters, Asia’s best Radhanagar Beach, private catamaran ferries, and scuba diving adventures.',
+                category: 'domestic',
+                duration: '5 Nights / 6 Days',
+                price: '₹22,499',
+                badge: 'Beach Paradise',
+                image: 'https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Escape to India’s tropical archipelago. Explore historic Cellular Jail in Port Blair, sail on high-speed luxury catamarans (Makruzz/Nautika) to Havelock and Neil Islands, and relax on powdery white-sand beaches.',
+                highlights: [
+                    'Cellular Jail Visit & Light and Sound Show in Port Blair',
+                    'High-Speed Private Cruise Ferry (Makruzz / Nautika) Transfers',
+                    'Radhanagar Beach (Beach No. 7) & Elephant Beach Water Sports',
+                    'Neil Island: Bharatpur Beach, Laxmanpur Beach & Natural Bridge'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Port Blair & Cellular Jail Show', desc: 'Arrive at Veer Savarkar Airport, Port Blair. Visit Corbyn’s Cove Beach followed by the historic Cellular Jail and evening Light & Sound Show.' },
+                    { day: 'Day 2', title: 'Port Blair to Havelock Island & Radhanagar Beach', desc: 'Board a high-speed catamaran ferry to Havelock Island. Afternoon visit to world-famous Radhanagar Beach for a mesmerizing sunset.' },
+                    { day: 'Day 3', title: 'Elephant Beach Snorkeling & Water Sports', desc: 'Take a speedboat trip to Elephant Beach—famous for vibrant coral reefs, complimentary snorkeling session, sea walk, and jet skiing.' },
+                    { day: 'Day 4', title: 'Havelock to Neil Island (The Coral Bowl)', desc: 'Sail to serene Neil Island. Visit Bharatpur Beach, Natural Rock Bridge, and sunset at Laxmanpur Beach.' },
+                    { day: 'Day 5', title: 'Neil Island to Port Blair & Sagarika Shopping', desc: 'Return ferry to Port Blair. Afternoon free for souvenir shopping at Sagarika Emporium.' },
+                    { day: 'Day 6', title: 'Departure from Port Blair', desc: 'Breakfast at hotel and drop to Port Blair Airport with tropical memories.' }
+                ],
+                inclusions: [
+                    '5 Nights accommodation in Port Blair, Havelock & Neil Island',
+                    'Daily Breakfast at all hotels',
+                    'All inter-island Private Cruise Ferry tickets (Makruzz/Nautika)',
+                    'Private AC vehicle for all airport & jetty transfers'
+                ],
+                exclusions: [
+                    'Flights to/from Port Blair',
+                    'Scuba diving, sea walk & extra water sports',
+                    'Lunch and dinner'
+                ]
+            },
+            {
+                id: 'sikkim',
+                name: 'Sikkim',
+                title: 'Himalayan Sikkim: Gangtok, Tsomgo Lake & Nathula Pass',
+                tagline: 'Glacial high-altitude lakes, vibrant Buddhist monasteries, MG Marg cafés, and Kanchenjunga sunrise views.',
+                category: 'domestic',
+                duration: '5 Nights / 6 Days',
+                price: '₹16,999',
+                badge: 'Scenic Northeast',
+                image: 'https://images.unsplash.com/photo-1622308644420-b20142dc993c?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Explore the clean, serene, and mystical Himalayan state of Sikkim. From Gangtok’s lively MG Marg and Rumtek Monastery to the sacred glacial waters of Tsomgo Lake and Baba Harbhajan Singh Mandir near the Indo-China border.',
+                highlights: [
+                    'Tsomgo (Changu) Glacial Lake & Baba Harbhajan Singh Mandir',
+                    'Optional Nathula Pass Indo-China Border Excursion',
+                    'Gangtok Full-Day Tour: Rumtek Monastery, Tashi View Point & Flower Show',
+                    'Optional Add-on: Pelling Skywalk or Darjeeling Tiger Hill Sunrise'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival at Bagdogra / NJP & Drive to Gangtok', desc: 'Meet our driver at Bagdogra Airport (IXB) or NJP Station and drive along the scenic Teesta River to Gangtok (4.5 hrs). Evening walk at MG Marg.' },
+                    { day: 'Day 2', title: 'Tsomgo Lake & Baba Mandir Excursion', desc: 'Drive to sacred Tsomgo Lake (12,400 ft) and Baba Harbhajan Singh Memorial. Enjoy yak rides by the snowy lake. Return to Gangtok.' },
+                    { day: 'Day 3', title: 'Gangtok Local Monasteries & Viewpoints', desc: 'Visit Tashi View Point, Ganesh Tok, Hanuman Tok, Do Drul Chorten Stupa, Namgyal Institute of Tibetology, and Banjhakri Falls.' },
+                    { day: 'Day 4', title: 'Gangtok to Pelling / Darjeeling Scenic Transfer', desc: 'Proceed to Pelling (or Darjeeling) through lush tea estates and mountain villages. Check in to your Himalayan view hotel.' },
+                    { day: 'Day 5', title: 'Pelling Skywalk / Darjeeling Sightseeing', desc: 'Explore Chenrezig Statue & Skywalk, Pemayangtse Monastery, and Rimbi Waterfalls (or Tiger Hill sunrise & Batasia Loop in Darjeeling).' },
+                    { day: 'Day 6', title: 'Transfer to Bagdogra Airport / NJP Station', desc: 'After breakfast, drive back to Bagdogra/NJP for your onward flight or train.' }
+                ],
+                inclusions: [
+                    '5 Nights stay in well-appointed Himalayan hotels',
+                    'Daily Breakfast & Dinner',
+                    'Exclusive vehicle (Innova/Xylo/WagonR) for entire tour',
+                    'Tsomgo Lake & Baba Mandir inner line permits'
+                ],
+                exclusions: [
+                    'Nathula Pass permit fee (subject to Army availability)',
+                    'Flights / Train tickets to IXB/NJP',
+                    'Ropeway tickets & personal expenses'
+                ]
+            },
+            {
+                id: 'dubai',
+                name: 'Dubai',
+                title: 'Dazzling Dubai: Burj Khalifa, Desert Safari & Abu Dhabi',
+                tagline: 'Futuristic skylines, 124th-floor Burj Khalifa views, Arabian BBQ Desert Safari, and Marina Dhow Cruise.',
+                category: 'international',
+                duration: '4 Nights / 5 Days',
+                price: '₹34,999',
+                badge: 'Top International',
+                image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Experience luxury, adventure, and Arabian hospitality in Dubai. This all-inclusive international package features Dubai Tourist Visa, Marina Dhow Cruise dinner, Burj Khalifa At The Top tickets, thrilling 4x4 Desert Safari, and a full-day Abu Dhabi city tour.',
+                highlights: [
+                    'Dubai 30-Day Single Entry Tourist Visa & Insurance Included',
+                    'Burj Khalifa 124th & 125th Floor Non-Prime Tickets + Dubai Mall Fountain Show',
+                    '4x4 Land Cruiser Desert Safari with Belly Dance, Tanoura & BBQ Dinner',
+                    'Dubai Marina Luxury Dhow Cruise Dinner & Abu Dhabi Grand Mosque Tour'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Dubai & Marina Dhow Cruise Dinner', desc: 'Arrive at Dubai International Airport (DXB) and transfer to your hotel. In the evening, sail along glittering Dubai Marina on a traditional Dhow Cruise with international buffet dinner.' },
+                    { day: 'Day 2', title: 'Half-Day Dubai City Tour & Burj Khalifa 124th Floor', desc: 'Guided tour covering Jumeirah Mosque, Burj Al Arab photo stop, Palm Jumeirah, and Dubai Frame. Evening visit to Dubai Mall, Fountain Show & Burj Khalifa 124th floor.' },
+                    { day: 'Day 3', title: 'Thrilling 4x4 Desert Safari & BBQ Dinner', desc: 'Morning free for shopping at Gold Souk or Mall of the Emirates. Afternoon 4x4 dune bashing in the Arabian Desert, camel ride, henna painting, live shows & BBQ dinner.' },
+                    { day: 'Day 4', title: 'Abu Dhabi City Tour & Sheikh Zayed Grand Mosque', desc: 'Full-day excursion to UAE’s capital—visit the magnificent Sheikh Zayed Grand Mosque, Emirates Palace drive-by, and Ferrari World photo stop.' },
+                    { day: 'Day 5', title: 'Departure from Dubai Airport', desc: 'After breakfast, check out and transfer to Dubai Airport for your flight back to India.' }
+                ],
+                inclusions: [
+                    '4 Nights stay in 3*/4* Dubai Hotel with Daily Breakfast',
+                    'UAE 30-Day Tourist Visa + Travel Insurance',
+                    'Return Dubai Airport transfers on private basis',
+                    'Dhow Cruise Dinner, Desert Safari BBQ, City Tour & Burj Khalifa tickets'
+                ],
+                exclusions: [
+                    'Return International Airfare (available on request)',
+                    'Tourism Dirham fee payable directly at hotel (AED 10-15/night)',
+                    'Lunch and personal shopping'
+                ]
+            },
+            {
+                id: 'thailand',
+                name: 'Thailand',
+                title: 'Tropical Thailand: Phuket, Phi Phi Island & Krabi',
+                tagline: 'Turquoise limestone cliffs, speedboat island hopping to Maya Bay, vibrant night markets, and Thai hospitality.',
+                category: 'international',
+                duration: '5 Nights / 6 Days',
+                price: '₹28,999',
+                badge: 'Best Value',
+                image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Soak up the sun in Southern Thailand’s two most iconic coastal gems—Phuket and Krabi. Island-hop by speedboat to Phi Phi & Maya Bay, explore Krabi’s Four Islands, and unwind on Patong and Ao Nang beaches.',
+                highlights: [
+                    'Full-Day Phi Phi Island & Maya Bay Speedboat Tour with Buffet Lunch',
+                    'Krabi 4-Island Tour: Phra Nang Cave, Chicken Island, Tup & Poda Island',
+                    'Phuket City Tour: Big Buddha, Wat Chalong & Old Phuket Town',
+                    'Seamless Airport & Inter-City Private Transfers'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Phuket & Patong Beach Evening', desc: 'Arrive at Phuket International Airport (HKT) and transfer to your resort. Evening free to explore Patong Beach and vibrant Bangla Walking Street.' },
+                    { day: 'Day 2', title: 'Phi Phi Island & Maya Bay Speedboat Excursion', desc: 'Full-day speedboat tour to Phi Phi Don, Phi Phi Leh, Maya Bay, Viking Cave, and snorkeling in crystal-clear waters. Thai/Indian buffet lunch included.' },
+                    { day: 'Day 3', title: 'Phuket Half-Day City Tour & Big Buddha', desc: 'Visit Karon Viewpoint, Big Buddha Temple, Wat Chalong, and colourful Sino-Portuguese streets of Old Phuket Town.' },
+                    { day: 'Day 4', title: 'Phuket to Krabi Scenic Transfer', desc: 'Private transfer from Phuket to Krabi (3 hrs). Check in to your Ao Nang resort and enjoy sunset by the limestone cliffs.' },
+                    { day: 'Day 5', title: 'Krabi 4-Island Speedboat Tour with Lunch', desc: 'Hop across Phra Nang Cave Beach, Chicken Island, Tup Island, and Poda Island with snorkeling gear and picnic lunch included.' },
+                    { day: 'Day 6', title: 'Departure from Krabi / Phuket Airport', desc: 'After breakfast, transfer to the airport for your return flight home.' }
+                ],
+                inclusions: [
+                    '5 Nights accommodation (3N Phuket + 2N Krabi) with Breakfast',
+                    'Phi Phi Island Speedboat Tour with Lunch',
+                    'Krabi 4-Island Speedboat Tour with Lunch',
+                    'Phuket City Tour & all private airport/hotel transfers'
+                ],
+                exclusions: [
+                    'International Flights',
+                    'Thailand National Park Entry Fee (THB 400 per tour)',
+                    'Dinners and personal expenses'
+                ]
+            },
+            {
+                id: 'bali',
+                name: 'Bali',
+                title: 'Magical Bali: Ubud Jungles, Nusa Penida & Kuta Beaches',
+                tagline: 'Iconic Bali Swing over rice terraces, dramatic Kelingking Cliff in Nusa Penida, Uluwatu Sunset & private pool villas.',
+                category: 'international',
+                duration: '6 Nights / 7 Days',
+                price: '₹32,499',
+                badge: 'Honeymoon #1',
+                image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80',
+                overview: 'The Island of the Gods awaits! Split your stay between the lush cultural heartland of Ubud and the coastal beach vibes of Kuta/Seminyak. Includes a full-day fast boat trip to Nusa Penida, Kintamani volcano views, and Tanah Lot sunset temple.',
+                highlights: [
+                    'Nusa Penida West Island Tour: Kelingking Beach, Broken Beach & Angel’s Billabong',
+                    'Ubud Swing, Tegalalang Rice Terraces & Kintamani Mount Batur View',
+                    'Uluwatu Cliff Temple & Traditional Kecak Fire Dance',
+                    'Benoa Water Sports + Tanah Lot Sunset Temple Tour'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Bali & Transfer to Ubud', desc: 'Welcome to Ngurah Rai International Airport, Denpasar! Our driver greets you with a flower garland and transfers you to your Ubud resort.' },
+                    { day: 'Day 2', title: 'Kintamani Volcano, Tegalalang Rice Terraces & Bali Swing', desc: 'Visit Celuk Silver Village, Tegenungan Waterfall, Kintamani viewpoint overlooking Mount Batur, Tegalalang Rice Terraces, and experience the famous Bali Swing.' },
+                    { day: 'Day 3', title: 'Ubud to Kuta/Seminyak via Tanah Lot Temple', desc: 'Check out from Ubud, visit Royal Taman Ayun Temple and witness an unforgettable sunset at sea-perched Tanah Lot Temple before checking in at Kuta/Seminyak.' },
+                    { day: 'Day 4', title: 'Nusa Penida West Island Fast Boat Tour', desc: 'Early morning fast boat from Sanur to Nusa Penida. Explore iconic T-Rex shaped Kelingking Cliff, Broken Beach, Angel’s Billabong, and Crystal Bay.' },
+                    { day: 'Day 5', title: 'Tanjung Benoa Water Sports & Uluwatu Kecak Dance', desc: 'Enjoy complimentary Banana Boat ride (plus optional Parasailing/Jet Ski) at Tanjung Benoa. Evening visit to Uluwatu Temple for cliffside Kecak Dance.' },
+                    { day: 'Day 6', title: 'Leisure Day for Spa, Beach Clubs & Shopping', desc: 'Relax at Seminyak beach clubs, enjoy a traditional Balinese couple massage, or shop at Kuta Beachwalk.' },
+                    { day: 'Day 7', title: 'Departure from Denpasar Airport', desc: 'Breakfast at hotel and private transfer to Bali Airport.' }
+                ],
+                inclusions: [
+                    '6 Nights stay (2N Ubud + 4N Kuta/Seminyak) with Daily Breakfast',
+                    'Nusa Penida Fast Boat Tickets + Island Tour with Lunch',
+                    'All private AC cab sightseeing & airport transfers',
+                    'Bali Swing & Complimentary Banana Boat ride'
+                ],
+                exclusions: [
+                    'International Airfare & Indonesia Visa on Arrival (approx. USD 35)',
+                    'Dinners and personal expenses'
+                ]
+            },
+            {
+                id: 'vietnam',
+                name: 'Vietnam',
+                title: 'Vietnam Heritage: Hanoi, Ha Long Bay Cruise & Da Nang',
+                tagline: 'Overnight luxury cruise amidst limestone karsts, Golden Hand Bridge at Ba Na Hills, and lantern-lit Hoi An.',
+                category: 'international',
+                duration: '6 Nights / 7 Days',
+                price: '₹35,999',
+                badge: 'Trending 2026',
+                image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
+                overview: 'Discover Southeast Asia’s fastest-rising travel gem. Wander through Hanoi’s bustling Old Quarter, sleep aboard an overnight cruise in UNESCO-listed Ha Long Bay, walk across the giant stone hands of Ba Na Hills in Da Nang, and stroll through magical lantern-lit Hoi An.',
+                highlights: [
+                    '1 Night Luxury Overnight Cruise on Ha Long Bay with Kayaking & Caves',
+                    'Da Nang Ba Na Hills Cable Car & Iconic Golden Hand Bridge',
+                    'Hoi An Ancient Town Lantern Walk & Coconut Basket Boat Ride',
+                    'Hanoi Old Quarter, Train Street & Hoan Kiem Lake Tour'
+                ],
+                days: [
+                    { day: 'Day 1', title: 'Arrival in Hanoi & Old Quarter Rickshaw Tour', desc: 'Arrive at Noi Bai Airport, Hanoi. Check in to your hotel. Explore Hoan Kiem Lake, Ngoc Son Temple, and the lively Hanoi Old Quarter.' },
+                    { day: 'Day 2', title: 'Hanoi to Ha Long Bay Overnight Luxury Cruise', desc: 'Drive to Ha Long Bay and board your luxury cruise ship. Sail past thousands of limestone islands, explore Sung Sot Cave, kayak, and enjoy sunset party & dinner onboard.' },
+                    { day: 'Day 3', title: 'Ha Long Bay Morning Tai Chi & Fly to Da Nang', desc: 'Morning brunch on the cruise as you sail back to port. Transfer to Hanoi Airport for a short domestic flight to coastal Da Nang.' },
+                    { day: 'Day 4', title: 'Ba Na Hills & Iconic Golden Hand Bridge', desc: 'Ride one of the world’s longest cable cars up Ba Na Hills. Walk across the famous Golden Bridge held by giant stone hands and explore French Village.' },
+                    { day: 'Day 5', title: 'Cam Thanh Coconut Village & Hoi An Lantern Town', desc: 'Enjoy a fun bamboo basket boat ride in Cam Thanh coconut forest, followed by a walking tour of UNESCO-listed Hoi An Ancient Town illuminated by thousands of lanterns.' },
+                    { day: 'Day 6', title: 'Marble Mountains & My Khe Beach Leisure', desc: 'Visit Marble Mountains and Linh Ung Pagoda in the morning. Afternoon free to relax on white-sand My Khe Beach.' },
+                    { day: 'Day 7', title: 'Departure from Da Nang Airport', desc: 'After breakfast, transfer to Da Nang International Airport for your return flight.' }
+                ],
+                inclusions: [
+                    '5 Nights in 3*/4* Hotels (Hanoi & Da Nang) + 1 Night Ha Long Cruise',
+                    'Daily Breakfast + All Meals on Ha Long Bay Cruise',
+                    'Ba Na Hills Cable Car & Golden Bridge Entry Tickets',
+                    'All private AC transfers & English-speaking guide'
+                ],
+                exclusions: [
+                    'International & Hanoi–Da Nang internal flight tickets',
+                    'Vietnam E-Visa fee (assistance provided by our team)',
+                    'Personal expenses & tips'
+                ]
+            }
+        ];
+
+        // Track currently open destination for itinerary page actions
+        let currentActiveDestination = null;
+
+        // Initialize Page on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDestinationCards('all');
+            
+            // Set minimum date on Quick Planner to today
+            const today = new Date().toISOString().split('T')[0];
+            const qpDate = document.getElementById('qp-date');
+            const itinDate = document.getElementById('itin-user-date');
+            if (qpDate) qpDate.min = today;
+            if (itinDate) itinDate.min = today;
+        });
+
+        // Render Destination Grid Cards
+        function renderDestinationCards(filterCategory) {
+            const grid = document.getElementById('destinations-grid');
+            if (!grid) return;
+
+            const filtered = filterCategory === 'all' 
+                ? DESTINATIONS_DATA 
+                : DESTINATIONS_DATA.filter(d => d.category === filterCategory);
+
+            grid.innerHTML = filtered.map(dest => `
+                <div onclick="openDestinationItinerary('${dest.id}')" 
+                     class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-300 cursor-pointer flex flex-col justify-between transform hover:-translate-y-1">
+                    <div>
+                        <div class="relative h-52 overflow-hidden bg-slate-200">
+                            <img src="${dest.image}" 
+                                 onerror="this.src='https://placehold.co/800x500/0B1F3A/FFFFFF?text=${encodeURIComponent(dest.name)}'" 
+                                 alt="${dest.name} Tour Package" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            
+                            <!-- Top Badges -->
+                            <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                <span class="bg-brand-navy/85 backdrop-blur-md text-white text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg">
+                                    ${dest.category === 'domestic' ? 'India' : 'International'}
+                                </span>
+                                <span class="bg-amber-500 text-slate-950 text-[11px] font-extrabold px-2.5 py-1 rounded-lg shadow">
+                                    ${dest.badge}
+                                </span>
+                            </div>
+
+                            <!-- Bottom Destination Name & Duration -->
+                            <div class="absolute bottom-3 left-4 right-4 text-white">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-heading font-extrabold text-xl tracking-tight group-hover:text-amber-300 transition">
+                                        ${dest.name}
+                                    </h3>
+                                    <span class="text-xs font-semibold bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full">
+                                        ${dest.duration}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5">
+                            <p class="font-semibold text-slate-800 text-sm line-clamp-2 mb-2 group-hover:text-sky-700 transition">
+                                ${dest.title}
+                            </p>
+                            <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                                ${dest.tagline}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-5 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-[11px] text-slate-400 block">Starting From</span>
+                            <span class="font-heading font-extrabold text-lg text-brand-navy">${dest.price}</span>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 group-hover:bg-sky-600 group-hover:text-white px-3.5 py-2 rounded-xl bg-sky-50 transition">
+                            <span>View Itinerary</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Destinations Tab Switcher
+        function filterDestinations(category) {
+            // Update active tab styling
+            document.querySelectorAll('.dest-tab').forEach(btn => {
+                btn.classList.remove('bg-brand-navy', 'text-white');
+                btn.classList.add('text-slate-600', 'hover:text-brand-navy');
+            });
+            const activeTab = document.getElementById(`tab-${category}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-slate-600', 'hover:text-brand-navy');
+                activeTab.classList.add('bg-brand-navy', 'text-white');
+            }
+            renderDestinationCards(category);
+        }
+
+        // Open Dedicated Destination Itinerary Page (SPA Route)
+        function openDestinationItinerary(destId) {
+            const dest = DESTINATIONS_DATA.find(d => d.id === destId);
+            if (!dest) return;
+
+            currentActiveDestination = dest;
+
+            // Populate Hero & Breadcrumbs
+            document.getElementById('itin-breadcrumb-cat').textContent = dest.category === 'domestic' ? 'Domestic India' : 'International';
+            document.getElementById('itin-breadcrumb-name').textContent = dest.name;
+            document.getElementById('itin-hero-img').src = dest.image;
+            document.getElementById('itin-badge-type').textContent = dest.category === 'domestic' ? 'Domestic India Package' : 'International Holiday';
+            document.getElementById('itin-badge-duration').textContent = dest.duration;
+            document.getElementById('itin-title').textContent = dest.title;
+            document.getElementById('itin-tagline').textContent = dest.tagline;
+            document.getElementById('itin-overview').textContent = dest.overview;
+            document.getElementById('itin-price').textContent = dest.price;
+            document.getElementById('itin-form-dest-name').value = `${dest.name} (${dest.duration})`;
+
+            // Populate Highlights
+            document.getElementById('itin-highlights').innerHTML = dest.highlights.map(item => `
+                <div class="flex items-start gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <i class="fa-solid fa-circle-check text-teal-600 mt-0.5 shrink-0"></i>
+                    <span class="text-xs sm:text-sm text-slate-700 font-medium">${item}</span>
+                </div>
+            `).join('');
+
+            // Populate Day-by-Day Itinerary Timeline
+            document.getElementById('itin-days-container').innerHTML = dest.days.map(d => `
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-sky-600 text-white font-heading font-bold text-xs flex items-center justify-center shadow-md border-4 border-white">
+                        ${d.day.replace('Day ', 'D')}
+                    </div>
+                    <div class="bg-slate-50 hover:bg-sky-50/40 transition rounded-xl p-4 sm:p-5 border border-slate-200/70">
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-600 block mb-1">${d.day}</span>
+                        <h4 class="font-heading font-bold text-base sm:text-lg text-brand-navy mb-1.5">${d.title}</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${d.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Populate Inclusions & Exclusions
+            document.getElementById('itin-inclusions').innerHTML = dest.inclusions.map(inc => `
+                <li class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-600 mt-1 shrink-0"></i>
+                    <span>${inc}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('itin-exclusions').innerHTML = dest.exclusions.map(exc => `
+                <li class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-xmark text-rose-500 mt-1 shrink-0"></i>
+                    <span>${exc}</span>
+                </li>
+            `).join('');
+
+            // Populate Other Destinations Quick Switcher
+            document.getElementById('itin-other-links').innerHTML = DESTINATIONS_DATA
+                .filter(item => item.id !== dest.id)
+                .map(other => `
+                    <button onclick="openDestinationItinerary('${other.id}')" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-sky-600 hover:text-white text-slate-700 transition">
+                        ${other.name} (${other.duration.split('/')[0].trim()})
+                    </button>
+                `).join('');
+
+            // Update Pre-filled WhatsApp Link
+            const waText = encodeURIComponent(`Hello TripsbyShahrukh (My Unique Travel)! I am interested in the *${dest.name} (${dest.duration})* package starting at ${dest.price}. Please share more details.`);
+            document.getElementById('itin-whatsapp-btn').href = `https://wa.me/919971927122?text=${waText}`;
+
+            // Switch Views & Scroll to Top
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('itinerary-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigate back to Home Landing View
+        function navigateToHome() {
+            document.getElementById('itinerary-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigate to a specific section on Home View (works even if user is currently on an Itinerary page)
+        function navigateToSection(sectionId, filterCat = null) {
+            const homeView = document.getElementById('home-view');
+            const itinView = document.getElementById('itinerary-view');
+
+            if (homeView.classList.contains('hidden')) {
+                itinView.classList.add('hidden');
+                homeView.classList.remove('hidden');
+            }
+
+            if (filterCat) {
+                filterDestinations(filterCat);
+            }
+
+            setTimeout(() => {
+                const target = document.getElementById(sectionId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 60);
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Modal Controls
+        function openEnquiryModal(subjectTitle) {
+            document.getElementById('modal-subject').value = subjectTitle;
+            document.getElementById('enquiry-modal').classList.remove('hidden');
+        }
+
+        function closeEnquiryModal() {
+            document.getElementById('enquiry-modal').classList.add('hidden');
+        }
+
+        // Custom Toast Notification Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4500);
+        }
+
+        // Quick Trip Planner Form Submission -> Opens WhatsApp with pre-filled quote request
+        function handleQuickPlannerSubmit(e) {
+            e.preventDefault();
+            const dest = document.getElementById('qp-destination').value;
+            const date = document.getElementById('qp-date').value;
+            const travellers = document.getElementById('qp-travellers').value;
+            const phone = document.getElementById('qp-phone').value;
+
+            const msg = encodeURIComponent(
+                `Hello TripsbyShahrukh!\nI'd like a free trip quote:\n• Destination: ${dest}\n• Travel Date: ${date}\n• Travellers: ${travellers}\n• My Contact: ${phone}`
+            );
+            showToast(`Redirecting to WhatsApp for your ${dest} trip quote...`);
+            window.open(`https://wa.me/919971927122?text=${msg}`, '_blank');
+        }
+
+        // Itinerary Page Booking Form Submission
+        function handleItineraryBookingSubmit(e) {
+            e.preventDefault();
+            const destName = document.getElementById('itin-form-dest-name').value;
+            const name = document.getElementById('itin-user-name').value;
+            const phone = document.getElementById('itin-user-phone').value;
+            const date = document.getElementById('itin-user-date').value || 'Flexible';
+            const guests = document.getElementById('itin-user-guests').value;
+
+            const msg = encodeURIComponent(
+                `Hello TripsbyShahrukh!\nI want to request a custom quote for *${destName}*:\n• Name: ${name}\n• Phone: ${phone}\n• Travel Date: ${date}\n• Guests: ${guests}`
+            );
+            showToast(`Thank you ${name}! Opening WhatsApp to finalize your ${destName} itinerary.`);
+            window.open(`https://wa.me/919971927122?text=${msg}`, '_blank');
+            e.target.reset();
+        }
+
+        // Contact Section Form Submit
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('cf-name').value;
+            const service = document.getElementById('cf-service').value;
+            showToast(`Thank you, ${name}! Your enquiry for ${service} has been received by My Unique Travel. We will contact you shortly.`);
+            e.target.reset();
+        }
+
+        // Contact Section Direct WhatsApp Button
+        function sendContactViaWhatsApp() {
+            const name = document.getElementById('cf-name').value || 'Traveller';
+            const phone = document.getElementById('cf-phone').value || 'Not provided';
+            const service = document.getElementById('cf-service').value;
+            const message = document.getElementById('cf-message').value || 'Please share details and best price.';
+
+            const waMsg = encodeURIComponent(
+                `Hello TripsbyShahrukh (My Unique Travel)!\n• Name: ${name}\n• Phone: ${phone}\n• Interested In: ${service}\n• Details: ${message}`
+            );
+            window.open(`https://wa.me/919971927122?text=${waMsg}`, '_blank');
+        }
+
+        // Modal Form Submit -> WhatsApp
+        function handleModalEnquirySubmit(e) {
+            e.preventDefault();
+            const subject = document.getElementById('modal-subject').value;
+            const name = document.getElementById('modal-name').value;
+            const phone = document.getElementById('modal-phone').value;
+            const notes = document.getElementById('modal-notes').value || 'N/A';
+
+            const waMsg = encodeURIComponent(
+                `Hello TripsbyShahrukh!\n• Enquiry For: ${subject}\n• Name: ${name}\n• Phone: ${phone}\n• Notes: ${notes}`
+            );
+            closeEnquiryModal();
+            window.open(`https://wa.me/919971927122?text=${waMsg}`, '_blank');
+            e.target.reset();
+        }
+
+        function confirmModalToastOnly() {
+            const subject = document.getElementById('modal-subject').value;
+            const name = document.getElementById('modal-name').value || 'Guest';
+            closeEnquiryModal();
+            showToast(`Callback requested for ${subject}! Our team will call ${name} shortly.`);
+        }
+    </script>
+</body>
+</html>
